@@ -1,10 +1,8 @@
-## Job 기본
-
 `Job`은 백그라운드 작업될 수 있는 코루틴의 실행단위이다. `Job` 은 생명주기에 따라 취소 또는 완료에 이를 수 있다.
 
 Job은 부모-자식간의 계층구조로 이루어질 수 있으며, 부모 Job이 취소되면 하위에 소속된 모든 자식 Job 또한 재귀적으로 즉시 취소된다. 
 
-자식 Job에서 발생한 Exception은 부모 Job에도 영향을 끼친다. (CancellationException은 예외다.)
+자식 Job에서 발생한 Exception은 부모 Job에도 영향을 끼친다. (CancellationException은 예외다. 밑에서 설명함)
 ```kotlin
 val parentJob: Job = launch {  
     val child1 = launch {  
@@ -49,10 +47,33 @@ Exception을 통해 Job을 취소할 경우, Cancelling 상태에 진입하게 �
 
 Completing 상태는 모든 자식 Job이 성공할 때까지 기다리며, 모든 자식 Job이 성공하면 Completed상태가 된다.
 
-![image](https://github.com/user-attachments/assets/c4963c30-c167-4b06-98c3-4f6f41f07892)
+![[Pasted image 20250224003237.png]]
 
 
 > `cancel()` 메서드는 CancellationException을 발생시키며, 예외적으로 부모코루틴을 종료시키지 않는다.
 > CancellationException은 코루틴의 정상적인 종료를 유도하는데 사용되는 특별한 예외이다.
 > CancellationException이 예외인 이유는 Job의 생명주기에 해당 Exception으로 취소여부를 알아야하기 때문이다
 
+
+## SupervisorJob
+예외 전파를 자식으로 한정하는 Job. 
+Job은 부모 + 자식 계층 구조의 상태를 가지고 있는 코루틴의 실행 단위인 만큼, 예외 발생시 상하로 전파하도록 되어있다. 따라서 일반적인 CompleteJob 사용시 발생하는 Exception은 부모로의 예외전파까지 포함하므로, 예기치않은 앱종료, Exception이 발생할 수 있다.
+
+이를 방지하기 위해, 예외전파를 자식으로만 한정짓는 방법을 선택할 수 있는데, 그게 SupervisorJob이다.
+
+SupervisorJob은 아래와 같이, childCancelled를 false로 리턴하면서, 부모를 향한 Exception 전파를 막는다.
+```kotlin
+private class SupervisorJobImpl(parent: Job?) : JobImpl(parent) {  
+    override fun childCancelled(cause: Throwable): Boolean = false  
+}
+```
+
+childCancelled 메서드는 아래와 같이 부모 job을 취소하고자 할 때 사용하는 메서드다.
+해당 메서드를 false로 고정 리턴하기 때문에, 부모로의 예외전파는 일어나지않는다.
+
+```kotlin
+/**  
+ * Child is cancelling its parent by invoking this method. * This method is invoked by the child twice. The first time child report its root cause as soon as possible, * so that all its siblings and the parent can start cancelling their work asap. The second time * child invokes this method when it had aggregated and determined its final cancellation cause. * * @suppress **This is unstable API and it is subject to change.**  
+ */@InternalCoroutinesApi  
+public fun childCancelled(cause: Throwable): Boolean
+```
