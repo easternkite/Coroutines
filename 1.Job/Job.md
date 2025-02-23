@@ -1,3 +1,5 @@
+## Job 기본
+
 `Job`은 백그라운드 작업될 수 있는 코루틴의 실행단위이다. `Job` 은 생명주기에 따라 취소 또는 완료에 이를 수 있다.
 
 Job은 부모-자식간의 계층구조로 이루어질 수 있으며, 부모 Job이 취소되면 하위에 소속된 모든 자식 Job 또한 재귀적으로 즉시 취소된다. 
@@ -47,7 +49,7 @@ Exception을 통해 Job을 취소할 경우, Cancelling 상태에 진입하게 �
 
 Completing 상태는 모든 자식 Job이 성공할 때까지 기다리며, 모든 자식 Job이 성공하면 Completed상태가 된다.
 
-![[Pasted image 20250224003237.png]]
+![image](https://github.com/user-attachments/assets/c4963c30-c167-4b06-98c3-4f6f41f07892)
 
 
 > `cancel()` 메서드는 CancellationException을 발생시키며, 예외적으로 부모코루틴을 종료시키지 않는다.
