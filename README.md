@@ -4,7 +4,7 @@
 올바르고 정확한 지식 습득을 위해, 학습 루트를 제한한다.
 1. [공식 문서](https://kotlinlang.org/docs/coroutines-overview.html)
 2. [API 문서](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html)
-3. [Kotlin Github 문서](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)
+3. [Kotlin KEEP 문서](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)
 
 ### 로드 맵
 1. 기본 용어들에 대한 각각의 쓰임새와 활용방법 숙지
