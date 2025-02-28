@@ -18,7 +18,7 @@ launch(Swing) {
 	
 }
 ```
-코루틴은 초기에 initiaCode()부터 다음 suspension point까지 작업을 실행한다. suspension point에서 재게되는 시점에는 block1()을 이어서 실행하고, 다시 정지되고, 다시 재게되면서 block2()를 실행하고 완료한다.
+코루틴은 초기에 initiaCode() 부터 다음 suspension point까지 작업을 실행한다. suspension point에서 재게되는 시점에는 block1()을 이어서 실행하고, 다시 정지되고, 다시 재게되면서 block2()를 실행하고 완료한다.
 
 여기서 Continuation Interceptor는 suspenion point에서 다시 일반 execution으로 재개할 시점에 continuation을 가로채서 특정 작업을 수행하는 Continuation으로 래핑하는 역할을 한다.
 
