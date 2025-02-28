@@ -1,7 +1,7 @@
 ## Continuation Interceptor
 Coroutines은 일반적으로 특정 Thread에 종속되지않고 독립적으로 실행가능한 실행단위이다.(Non-Blocking 특성)  
-그러나, Android의 UI 쓰레드와 같이 특정 작업을 특정 Thread에서만 동작하도록 제한을 해야하는 상황이 있을 수 있다. 
-이런 문제를 해결하기 위해 Continuation Interceptor를 활용해야한다.
+그러나, Android의 UI 쓰레드와 같이 특정 작업을 특정 Thread에서만 동작하도록 제한을 해야하는 상황이 있을 수 있다.  
+이러한 문제를 해결하기 위해 Continuation Interceptor를 활용해야한다.
 
 Continuation Interceptor는 해당 suspend 함수의 Continuation을 가로채어 함수가 정지하고 재개할 때 의도한 동작으로 수행하도록 유도할 수 있는 기능이다.
 이는 **Dispatcher Context에서 사용하는 핵심 개념**이다. 
