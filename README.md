@@ -14,3 +14,4 @@
 
 * [Job](https://github.com/easternkite/Coroutines/blob/main/1.Job/Job.md)
 * [CPS + State Machine](https://github.com/easternkite/Coroutines/blob/main/CPS%2BStateMachine.md)
+* [Continuation_Interceptor](https://github.com/easternkite/Coroutines/blob/main/Continuation_Interceptor.md) - Dispatcher의 핵심 개념
