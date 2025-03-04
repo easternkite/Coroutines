@@ -1,4 +1,4 @@
-# 7. Non-Blocking Sleep
+# Non-Blocking Sleep
 
 코루틴에서 현재 쓰레드를 Blocking하는 Thread.sleep()를 사용하면 안됩니다. 대신, Java의 ScheduledThreadpoolExecutor를 사용하여 직관적이고 Non-Blocking한 `delay` 를 대신 사용할 수 있습니다.
 ```kotlin
