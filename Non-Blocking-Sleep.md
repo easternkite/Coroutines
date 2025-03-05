@@ -12,7 +12,7 @@ suspend fun delay(time: Long, unit: TimeUnit = TimeUnit.MILLISECONDS): Unit = su
 ```
 
 해당 delay함수를 통해 별도의 scheduler 쓰레드에서 코루틴을 resume하도록 수현할 수 있습니다.  
-대신 사용하는 Context에 따라서, 해당 쓰레드에서만 머무르지 않는 케이스도 존재합니다. Swing과 같은 interceptor를 사용하는 코루틴은, 인터셉터를 통해 적절한 쓰레드 풀을 찾아서 작업을 전달해주기 때문에 하나의 쓰레드에서만 머무르는 것을 기대할 수 없습니다.
+대신 사용하는 Context에 따라서, 해당 쓰레드에서만 머무르지 않는 케이스도 존재합니다. Swing과 같은 [interceptor](https://github.com/easternkite/Coroutines/blob/main/Continuation_Interceptor.md)를 사용하는 코루틴은, 인터셉터를 통해 적절한 쓰레드 풀을 찾아서 작업을 전달해주기 때문에 하나의 쓰레드에서만 머무르는 것을 기대할 수 없습니다.
 
 그렇기 때문에 위에서 보여준건 편의를 위한 목적으로 보여준 것이지 모든 환경에서 효율적인 방법은 아닙니다. interceptor환경에서도 적절한 non-blocking sleep을 네이티브로 구현하려면, SwingTimer를 사용한다면 다음과 같이 표현할 수 있습니다.
 
