@@ -12,6 +12,7 @@
 1. 기본 용어들에 대한 각각의 쓰임새와 활용방법 숙지
 2. 내부 동작 숙지
 
+### 분석 개념
 * [Job](https://github.com/easternkite/Coroutines/blob/main/1.Job/Job.md)
 * [CPS + State Machine](https://github.com/easternkite/Coroutines/blob/main/CPS%2BStateMachine.md)
 * [Continuation_Interceptor](https://github.com/easternkite/Coroutines/blob/main/Continuation_Interceptor.md) - Dispatcher의 핵심 개념
