@@ -16,6 +16,7 @@
 * [Job](https://github.com/easternkite/Coroutines/blob/main/1.Job/Job.md)
 * [CPS + State Machine](https://github.com/easternkite/Coroutines/blob/main/CPS%2BStateMachine.md)
 * [Continuation_Interceptor](https://github.com/easternkite/Coroutines/blob/main/Continuation_Interceptor.md) - Dispatcher의 핵심 개념
+* [Coroutine Dispatcher](https://github.com/easternkite/Coroutines/blob/main/Dispatcher.md) - Continuation Interceptor 활용 심화편
 * [CoroutineContext](https://github.com/easternkite/Coroutines/blob/main/CoroutineContext.md)
 * [Non-Blocking Sleep](https://github.com/easternkite/Coroutines/blob/main/Non-Blocking-Sleep.md) - 쓰레드를 Block시키지않고 delay를 구현하는법
 * [Restricted Suspension](https://github.com/easternkite/Coroutines/blob/main/Restricted_suspansion.md) - 의도된 suspend 함수만 허용해야할 때
