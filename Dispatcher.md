@@ -1,4 +1,8 @@
 ## Coroutine Dispatcher
+코루틴에서 실행되는 로직은 일반적으로 쓰레드에 종속적이지 않다. A쓰레드에서 정지했어도 B쓰레드에서 재개할 수 있다는 것이다.
+그러나 UI 상태 처리와 같이 특정 쓰레드에서만 로직을 실행하도록 해야할 경우가 있다. 
+이 문제를 해결하기위해 재개(resume)시점에 특정 쓰레드풀로 작업을 보내는(dispatch) Dispatcher를 고려해볼 수 있다.
+
 Dispatcher의 주된 역할은 작업을 특정 쓰레드에서 실행되도록 쓰레드풀로 보내는(dispatcher) 작업을 수행한다. 
 이게 가능한 이유는 **Continuation Interceptor**에 있는데, 해당 suspend함수의 continuation을 가로채어, 작업이 일시정지되고 재개(resumeWith)하는 시점에 **특정 쓰레드에서 실행하도록 유도하도록 래핑된 Continuation을 반환**하는 것이다.
 
