@@ -2,7 +2,7 @@
 Dispatcher의 주된 역할은 작업을 특정 쓰레드에서 실행되도록 쓰레드풀로 보내는(dispatcher) 작업을 수행한다. 
 이게 가능한 이유는 **Continuation Interceptor**에 있는데, 해당 suspend함수의 continuation을 가로채어, 작업이 일시정지되고 재개(resumeWith)하는 시점에 **특정 쓰레드에서 실행하도록 유도하도록 래핑된 Continuation을 반환**하는 것이다.
 
-> Continuation에 대해 짧게 설명한다면, suspend함수 실행시 암시적으로 전달되는 상태객체이다. 이를 통해 일시 정지시 suspension point와, 재개(resume)시 resumeWith함수를 통해 다음 로직을 이어서 수행할 수 있도록 해준다. 
+> Continuation에 대해 짧게 설명한다면, suspend함수 실행시 암시적으로 전달되는 상태객체이다. 이를 통해 일시 정지시 suspension point를 기억하고, resumeWith함수를 통해 다음 로직을 이어서 수행할 수 있도록 해준다.   
 > 이 Continuation을 가로채어 resumeWith 함수를 특정 쓰레드에서 실행되도록 커스텀하는게 Dispatcher의 역할이라 보면 된다.
 
 
