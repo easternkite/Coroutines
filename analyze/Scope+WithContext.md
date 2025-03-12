@@ -23,7 +23,7 @@ fun main() {
             withContext(this.coroutineContext) {
                 launch(CoroutineName("Job A")) {
                     delay(200L)
-                    println("Job A completed.")
+                    println("Job A completed.")
                 }
                 launch(CoroutineName("Job B")) {
                     delay(100L)
@@ -147,10 +147,10 @@ suspend fun test(context: CoroutineContext) {
 
 fun main() {
     runBlocking {
-		supervisorScope {
-			test(coroutineContext)
-		}
-	}
+        supervisorScope {
+            test(coroutineContext)
+        }
+    }
 }
 ```
 
