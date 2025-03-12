@@ -3,7 +3,7 @@
 <img width="381" alt="image" src="https://github.com/user-attachments/assets/5f4d78fe-b9e9-4f8c-bc38-48cd8ef8b9c9" />
 
 
-withContext는 내부 suspend block안의 로직을 특정 Context 환경에서 실행하도록 구성해주는 메서드이다.
+withContext는 내부 suspend block안의 로직을 특정 Context 환경에서 실행하도록 구성해주는 메서드이다.  
 단순히 이 기능만 수행한다면, 내부에서 생성된 Job의 부모는 상위에서 생성한 CoroutineScope가 되어야할 것이다.
 
 그러나 withContext는 내부적으로 **Coroutine을 자체 생성**하는 케이스가 있다는 사실을 알았고, 내부에서 생성된 Job의 에러전파가 상위 CoroutineScope에 전달되지 않던 이슈를 발견했다. 
@@ -80,7 +80,7 @@ supervisorScope가 부모로서 자식의 예외 전파를 막아주는 줄 알�
 
 #### 수정 (03/12)
 위 구조도도 사실상 틀린 내용이었다.  
-그러나 논리적으로는 이 구조도대로 구조가 이루어질 것 같았지만, 사실은 withContext는 supervisorScope의 자식이 맞는걸로 확인되었다.
+그러나 논리적으로는 이 구조도대로 구조가 이루어질 것 같았지만, 사실은 withContext는 supervisorScope의 자식이 맞는걸로 확인되었다.  
 GDG Korea Android 오픈채팅방의 **주간개발자님**께서 해당 근거를 코드로 전달주셨다. (감사합니다.)  
 <img width="360" alt="image" src="https://github.com/user-attachments/assets/5433f2be-9496-4cb7-b23c-535acb1a664d" />  
 
