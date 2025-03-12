@@ -78,6 +78,21 @@ supervisorScope가 부모로서 자식의 예외 전파를 막아주는 줄 알�
 
 ![image](https://github.com/user-attachments/assets/6430aa5b-d41d-4b44-b04f-baa7659c7447)
 
+#### 수정 (03/12)
+위 구조도도 사실상 틀린 내용이었다.  
+그러나 논리적으로는 이 구조도대로 구조가 이루어질 것 같았지만, 사실은 withContext는 supervisorScope의 자식이 맞는걸로 확인되었다.
+GDG Korea Android 오픈채팅방의 **주간개발자님**께서 해당 근거를 코드로 전달주셨다. (감사합니다.)  
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/5433f2be-9496-4cb7-b23c-535acb1a664d" />  
+
+그 근거는 아래 사진에서 확인할 수 있었다.  
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/03b37ab2-df3b-4129-962f-2ad589a092fb" />  
+
+이 근거에 기반하여 구조도를 수정하면 다음과 같다.  
+![image](https://github.com/user-attachments/assets/a81c8010-40bf-43fc-a666-d84f49ef84b2)
+
+### 의문점
+* 그렇다면 withContext 내부에서 발생한 에러는 supervisorJob을 건너뛰고 전파되는건지 모르겠다.
+
 ## withContext 내부 구조
 withContext가 어떻게 UndispatchedCoroutine을 생성하게 되었는지 알기위해선 withContext의 내부 동작을 알아야한다. 다음은 withContext의 내부 코드를 나타낸다. 내부 코드에서는 크게 `FAST PATH #1`, `FAST PATH #2`, `SLOW PATH`의 세가지 케이스로 나누어 처리하고 있다.
 
