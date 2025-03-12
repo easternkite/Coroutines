@@ -1,5 +1,8 @@
 # withContext는 별도의 Coroutine을 생성한다?
 
+<img width="381" alt="image" src="https://github.com/user-attachments/assets/5f4d78fe-b9e9-4f8c-bc38-48cd8ef8b9c9" />
+
+
 withContext는 내부 suspend block안의 로직을 특정 Context 환경에서 실행하도록 구성해주는 메서드이다.
 단순히 이 기능만 수행한다면, 내부에서 생성된 Job의 부모는 상위에서 생성한 CoroutineScope가 되어야할 것이다.
 
