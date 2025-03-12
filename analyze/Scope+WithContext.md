@@ -79,8 +79,8 @@ supervisorScope가 부모로서 자식의 예외 전파를 막아주는 줄 알�
 ![image](https://github.com/user-attachments/assets/6430aa5b-d41d-4b44-b04f-baa7659c7447)
 
 #### 수정 (03/12)
-위 구조도도 사실상 틀린 내용이었다.  
-그러나 논리적으로는 이 구조도대로 구조가 이루어질 것 같았지만, 사실은 withContext는 supervisorScope의 자식이 맞는걸로 확인되었다.  
+위 구조도도 **사실상 틀린 내용**이었다.  
+논리적으로는 이 구조도대로 구조가 이루어질 것 같았지만, 사실은 withContext는 supervisorScope의 자식이 맞는걸로 확인되었다.  
 GDG Korea Android 오픈채팅방의 **주간개발자님**께서 해당 근거를 코드로 전달주셨다. (감사합니다.)  
 <img width="360" alt="image" src="https://github.com/user-attachments/assets/5433f2be-9496-4cb7-b23c-535acb1a664d" />  
 
