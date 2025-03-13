@@ -20,3 +20,8 @@
 * [CoroutineContext](https://github.com/easternkite/Coroutines/blob/main/CoroutineContext.md)
 * [Non-Blocking Sleep](https://github.com/easternkite/Coroutines/blob/main/Non-Blocking-Sleep.md) - 쓰레드를 Block시키지않고 delay를 구현하는법
 * [Restricted Suspension](https://github.com/easternkite/Coroutines/blob/main/Restricted_suspansion.md) - 의도된 suspend 함수만 허용해야할 때
+
+
+## 이슈
+* [supervisorScope가 내부 withContext에서 생성한 Job의 예외전파를 막아주지 못하는 현상](https://github.com/easternkite/Coroutines/blob/main/analyze/Scope%2BWithContext.md)
+    * https://github.com/Kotlin/kotlinx.coroutines/issues/4385 이슈 등록
