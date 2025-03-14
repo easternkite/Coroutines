@@ -26,10 +26,10 @@ interface CoroutineContext {
 ```
 
 위 코드에서 보면, CoroutineContext는 4가지의 연산이 가능하도록 설계되어있다.
-* get : Key에 맞는 Element를 리턴합니다. Type Safe한 방식으로 조회할 수 있습니다.
-* fold : 일반적인 `Collection.fold` 와 같은 연산을 하며, Element를 순회하면서 필요한 연산을 할 수 있도록 설계되어있다.
-* plus: 두개의 context를 하나로 Set 모음으로 합치기 위해서 사용된다. 같은 계열의 Context는 오른편에 있는 Context가 왼편에있는 Context를 대체한다.
-* minusKey : 특정 Key의 Element를 삭제하고, 해당 Element가 삭제된 상태의 Context를 반환한다.
+* `get` : Key에 맞는 Element를 리턴합니다. Type Safe한 방식으로 조회할 수 있습니다.
+* `fold` : 일반적인 `Collection.fold` 와 같은 연산을 하며, Element를 순회하면서 필요한 연산을 할 수 있도록 설계되어있다.
+* `plus` : 두개의 context를 하나로 Set 모음으로 합치기 위해서 사용된다. 같은 계열의 Context는 오른편에 있는 Context가 왼편에있는 Context를 대체한다.
+* `minusKey` : 특정 Key의 Element를 삭제하고, 해당 Element가 삭제된 상태의 Context를 반환한다.
 
 하나의 Element는 Coroutine Context 그자체이다. 이는 하나의 Element만 가지고 있는 싱글톤 Context인 것이다. 이를 통해 +(plus) 연산을 통해 다른 Context를 조합할 수 있는 것이다. 예를들어서특정 라이브러리에서 사용자 인증 정보를 위해서 `auth` 라는 element를 정의하고, 또다른 라이브러리에서는 `threadPool` 오브젝트를 실행 콘텍스트 정보로서 정의를하였다면, launch 빌더를 통해서 손쉽게 두가지 Context를 합칠 수 있는 것이다. 
 ```kotlin
