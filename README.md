@@ -20,6 +20,7 @@
 * [CoroutineContext](https://github.com/easternkite/Coroutines/blob/main/CoroutineContext.md)
 * [Non-Blocking Sleep](https://github.com/easternkite/Coroutines/blob/main/Non-Blocking-Sleep.md) - 쓰레드를 Block시키지않고 delay를 구현하는법
 * [Restricted Suspension](https://github.com/easternkite/Coroutines/blob/main/Restricted_suspansion.md) - 의도된 suspend 함수만 허용해야할 때
+* [CoroutineScope + StructuredConcurrency](https://github.com/easternkite/Coroutines/blob/main/CoroutineScope.md)
 
 
 ## 이슈
