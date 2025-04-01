@@ -15,7 +15,7 @@ CoroutineContext의 `Plus` 연산자를 통해서 추가적인 요소를 Scope�
 
 
 ## 커스텀 사용 사례
-`CoroutineScope`는 마치 entity위에 프로퍼티처럼 선언해야하고, 자식 코루틴을 실행하기에 있어서 최적의 생명주기를 제공해줄 것입니다. 이와 대응하는 CoroutineScope 인스턴스는 `CoroutineScope()`, `MainScope()`를 통해 손쉽게 생성할 수 있습니다.
+`CoroutineScope`는 마치 entity 위에 프로퍼티처럼 선언해야하고, 자식 코루틴을 실행하기에 있어서 최적의 생명주기를 제공해줄 것입니다. 이와 대응하는 CoroutineScope 인스턴스는 `CoroutineScope()`, `MainScope()`를 통해 손쉽게 생성할 수 있습니다.
 
 * CoroutineScope()는 코루틴을 위한 context를 파라미터로 사용하고, Job을 추가합니다.(만약 context에 등록이 안되어있다면)
 * MainScope() 는 내부적으로 Dispatchers.Main을 사용하고, SupervisorJob을 포함합니다.
