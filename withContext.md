@@ -8,7 +8,7 @@
 > 여기서 active하지 않다는 말은 코루틴 콘텍스트가 취소되었거나, 이미 완료된 상태일 경우에 대한 상태다.
 
 
-만약 withContext로 다른 Dispatcher를 전달하였을 때, 필수적으로 추가적인 dispatch 작업이 수행됩니다. ㅠblock은 그자체로 즉시 실행될 순 없고, 작업 실행을 위해 다른 ThreadPool로 dispatch된 상태에서 실행됩니다. 그 후에 block이 최종적으로 완료되었을 경우, 현재 dispatcher는 원래의 dispatcher로 자동 전환됩니다.
+만약 withContext로 다른 Dispatcher를 전달하였을 때, 필수적으로 추가적인 dispatch 작업이 수행됩니다. block은 그자체로 즉시 실행될 순 없고, 작업 실행을 위해 다른 ThreadPool로 dispatch된 상태에서 실행됩니다. 그 후에 block이 최종적으로 완료되었을 경우, 현재 dispatcher는 원래의 dispatcher로 자동 전환됩니다.
 
 여기서 알아두어야 할것은 withContext의 결과가 되는 값은 cancellable한 방법으로 원래의 context로 dispatch됩니다. > 즉, `withContext`가 끝나고 **다시 원래의 coroutineContext로 돌아가려는 시점에**  
 그 원래의 컨텍스트가 **이미 취소된 상태라면**,  `withContext`의 결과는 **버려지고** `CancellationException`이 던져집니다.
