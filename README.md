@@ -19,7 +19,7 @@
 * [Coroutine Dispatcher](https://github.com/easternkite/Coroutines/blob/main/Dispatcher.md) - Continuation Interceptor 활용 심화편
 * [CoroutineContext](https://github.com/easternkite/Coroutines/blob/main/CoroutineContext.md)
 * [Non-Blocking Sleep](https://github.com/easternkite/Coroutines/blob/main/Non-Blocking-Sleep.md) - 쓰레드를 Block시키지않고 delay를 구현하는법
-* [Restricted Suspension](https://github.com/easternkite/Coroutines/blob/main/Restricted_suspansion.md) - 의도된 suspend 함수만 허용해야할 때
+* [Restricted Suspension](https://github.com/easternkite/Coroutines/blob/main/Restricted_suspension.md) - 의도된 suspend 함수만 허용해야할 때
 * [CoroutineScope + StructuredConcurrency](https://github.com/easternkite/Coroutines/blob/main/CoroutineScope.md)
 * [withContext 내부 구조 이해 및 컨셉](https://github.com/easternkite/Coroutines/blob/main/withContext.md)
 
